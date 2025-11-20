@@ -15,6 +15,8 @@
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
+    background: #020617;
   }
 
   body {
@@ -22,25 +24,13 @@
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
-@layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+/* Loading headlights */
+.headlight-glow { fill: #a5f3fc; opacity: 0; }
+@keyframes headlightPulse { 0%{opacity:0.1} 40%{opacity:0.4} 100%{opacity:1} }
+.animate-headlight { animation: headlightPulse 2s ease-in forwards; }
+.animate-headlight-delay { animation: headlightPulse 2.2s ease-in forwards; animation-delay: .2s; }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+/* Section glass cards */
+.glass {
+  @apply border border-white/10 bg-white/5 backdrop-blur-md;
 }
